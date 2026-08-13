@@ -21,6 +21,8 @@ public class Browser_Open_Close
 		
 //		Launch a browser
 		Browser browser=playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(arguments));
+		
+//		Create browser context to set view port size for the browser window.
 		BrowserContext context=browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
 		
 //		Open a tab in a browser
