@@ -12,8 +12,6 @@ public class Browser_Open_Close
 {
 	public static void main (String[] args)
 	{
-		
-//		Start of Program
 //		Create a Playwright instance
 		Playwright playwright= Playwright.create();
 		
@@ -21,7 +19,7 @@ public class Browser_Open_Close
 		ArrayList<String> arguments=new ArrayList<>();
 		arguments.add("--start-maximized");
 		
-//		Launch browser
+//		Launch a browser
 		Browser browser=playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chrome").setHeadless(false).setArgs(arguments));
 		
 //		Create browser context to set view port size for the browser window.

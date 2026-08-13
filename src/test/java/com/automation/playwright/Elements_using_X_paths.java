@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
 public class Elements_using_X_paths
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 		ArrayList<String> arguments=new ArrayList<>();
 		arguments.add("--start-maximized");
@@ -22,6 +23,9 @@ public class Elements_using_X_paths
 		
 		page.navigate("https://cronosedc.cronos.ws/Login");
 		
+		
+//		Method 2: Identify the elements along with perform the actions
+		
 //		identification of elements by using Relative X-paths
 //		Syntaxes:
 //				1. X-path by attribute: 	   //tagname[@AN='AV']
@@ -32,8 +36,16 @@ public class Elements_using_X_paths
 		
 		page.locator("//input[@name='loginname']").fill("user.1");
 		page.locator("(//button[@type='submit'])[1]").click();
-		page.locator("//input[@name='password']").fill("123");
+		
+//		For the security purpose the password field has kept disable in the application, so first click on the element then perform action.
+		Locator password=page.locator("//input[@name='password']");
+		password.click();
+		password.type("123");
+		
 		page.locator("(//button[@type='submit'])[2]").click();
+		
+//		Java wait for observation
+		Thread.sleep(10000);
 		
 		page.close();
 		browser.close();
