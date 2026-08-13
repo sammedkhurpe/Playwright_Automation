@@ -44,6 +44,5 @@ public class Browser_Open_Close
 //		Stop the playwright instance.
 		playwright.close();
 		
-		
 	}
 }
