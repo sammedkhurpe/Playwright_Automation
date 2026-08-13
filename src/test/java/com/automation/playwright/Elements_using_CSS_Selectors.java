@@ -22,6 +22,9 @@ public class Elements_using_CSS_Selectors
 		
 		page.navigate("https://cronosedc.cronos.ws/Login");
 		
+		System.out.println("Page URL: "+page.url());
+		System.out.println("Page Title: "+page.title());
+		
 //		identification of elements by using CSS Selector: Syntaxt: Tagname[AN='AV']
 		page.locator("input[name=\"loginname\"]").fill("user.1");
 		page.locator("button[aria-label=\"Next\"]").click();
